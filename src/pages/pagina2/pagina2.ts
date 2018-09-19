@@ -41,11 +41,31 @@ export class Pagina2Page {
   }
 
   ionViewCanEnter(){
-    console.log("ionViewCanEnter")
+    console.log("ionViewCanEnter");
+
+    let num = Math.round(Math.random() * 10);
+
+    console.log("num: ", num);
+    if (num >= 5 ){
+      return true;
+    }
+    else {
+      return false;
+    }
+
   }
 
   ionViewCanLeave(){
-    console.log("ionViewCanLeave")
+    console.log("ionViewCanLeave");
+
+    console.log("Espere 2 segundos para salir...");
+    
+    let promesa = new Promise( (resolve, reject) =>{
+      setTimeout( ()=> {
+        resolve(true)},2000)
+    })
+
+   return promesa; 
   }
 
 }
